@@ -14,7 +14,7 @@ $rust\
 $golang\
 $php\
 [](fg:#212736 bg:#1d2230)\
-$time\
+$username\
 [ ](fg:#1d2230)\
 \n $character """
 
@@ -76,7 +76,7 @@ format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [username]
 style_user = 'white bold'
-style_root = 'black bold'
-format = 'self '
+style_root = 'purple bold'
+format = 'as [$user]($style)'
 disabled = false
 show_always = true
