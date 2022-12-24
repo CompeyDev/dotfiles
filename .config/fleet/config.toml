@@ -1,0 +1,2 @@
+[build]
+lld = "rust-lld.exe"
