@@ -21,6 +21,8 @@ alias ls='ls --color=auto'
 alias neofetch="neofetch | lolcat"
 alias pokete="pokete.py"
 alias cat="bat"
+alias ls="lsd"
+
 
 # Path & Binaries
 export GOPATH=~/sdk/go1.19.4/
