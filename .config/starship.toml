@@ -180,8 +180,8 @@ symbol = " "
 [lua]
 symbol = " "
 detect_extensions=["lua", "luau"]
-lua_binary = "/home/compey/bin/lunev" 
-format = 'via [$symbol$version]($style)'
+lua_binary = "/home/alarm/bin/lunev"
+format = 'via [$symbol($version )]($style)'
 
 [memory_usage]
 symbol = "󰍛 "
