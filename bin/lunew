@@ -1,0 +1,13 @@
+#!/bin/bash
+
+lune=/usr/sbin/lune
+
+if (( $(lune --version | cut -d ' ' -f 2 | cut -d '.' -f 2) >= 8 )); then
+    if [ -f "$1" ] || [ -f "$1.luau" ] || [ -f "$1.lua" ]; then
+        lune run "$@"
+        exit $?
+    fi
+fi
+
+lune "$@"
+exit $?
