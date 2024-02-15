@@ -9,6 +9,7 @@
 #                      ~/.bash_logout                                    o888o
 
 
+# 15/02/24 Removing since it isn't christmas anymore lol
 
 # Christmas!! 
-wget -q -O- http://artscene.textfiles.com/vt100/xmas-09.vt | pv -q -L 2400
+# wget -q -O- http://artscene.textfiles.com/vt100/xmas-09.vt | pv -q -L 2400
