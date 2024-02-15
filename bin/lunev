@@ -1,1 +1,3 @@
-lune --version
+#!/bin/bash
+
+echo "$(lune --version) -- Copyright (C) 2021-2024 Filip Tibell http://lune-org.github.io/docs"
