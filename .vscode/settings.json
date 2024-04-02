@@ -1,0 +1,9 @@
+{
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font Mono', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "'JetBrains Mono NerdFont Mono'",
+    "redhat.telemetry.enabled": false,
+    "workbench.colorTheme": "Tokyo Night",
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
+    "workbench.productIconTheme": "icons-carbon",
+}
