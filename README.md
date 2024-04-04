@@ -5,3 +5,6 @@ git clone https://github.com/CompeyDev/dotfiles.git
 cd dotfiles
 ln -s .bashrc ~/.bashrc
 ```
+
+The repository also includes a `./install.sh` convenience script which installs required dependencies and uses GNU Stow to create an automated symlink farm. Currently, this script only works
+on Arch Linux based distributions (which have the pacman command).
