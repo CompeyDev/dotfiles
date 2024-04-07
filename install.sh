@@ -15,7 +15,7 @@ for dep in ${deps[@]}
 do
     if ! which $dep 2>/dev/null; then
         echo "[!] Dependency $dep not found!"
-        sudo pacman -Syy --no-confirm "$dep"
+        sudo pacman -Syy --noconfirm "$dep"
     else
         echo -e "\e[1A\e[K[*] FOUND: $dep"
     fi
