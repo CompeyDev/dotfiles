@@ -24,7 +24,7 @@ done
 echo ""
 echo "Symlinking configs for user: ${whoami}"
 
-find * -exec "ln -s -f {} $HOME/{}" \;
+find * -maxdepth 8 -exec "ln -s -f $HOME/{} {}" \;
 
 echo ""
 echo "##### ALL DONE"
