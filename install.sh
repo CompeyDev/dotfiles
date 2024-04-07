@@ -24,7 +24,7 @@ done
 echo ""
 echo "Stowing apps for user: ${whoami}"
 
-find * -maxdepth 1 -exec "stow -v -R -t $HOME {}" \;
+stow -v -R -t $HOME .
 
 echo ""
 echo "##### ALL DONE"
