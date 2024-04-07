@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -e
 
 git submodule init
 git submodule update
@@ -14,7 +15,7 @@ for dep in ${deps[@]}
 do
     if ! which $dep 2>/dev/null; then
         echo "[!] Dependency $dep not found!"
-        pacman -Syy "$dep"
+        sudo pacman -Syy "$dep"
     else
         echo -e "\e[1A\e[K[*] FOUND: $dep"
     fi
