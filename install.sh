@@ -4,7 +4,7 @@ set -e
 git submodule init
 git submodule update
 
-declare -a deps=("zsh" "zsh-autosuggestions" "zsh-syntax-highlighting" "starship" "exa" "bat" "fastfetch" "stow")
+declare -a deps=("zsh" "zsh-autosuggestions" "zsh-syntax-highlighting" "starship" "exa" "bat" "fastfetch")
 
 echo ""
 echo "#############################"
@@ -22,9 +22,9 @@ do
 done
 
 echo ""
-echo "Stowing apps for user: ${whoami}"
+echo "Symlinking configs for user: ${whoami}"
 
-stow -v -R -t $HOME *
+find * -exec "ln -s -f {} $HOME/{}" \;
 
 echo ""
 echo "##### ALL DONE"
