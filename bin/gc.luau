@@ -10,11 +10,11 @@ function main(args: {string})
         return gitStatusChild.code
     end
 
-    local statusDiff:{{ file: string, type: string }} = {}
+    local statusDiff: {{ file: string, type: string }} = {}
     local statusLines = gitStatusChild.stdout:split("\n")
 
     for lineCount, line in statusLines do
-        if lineCount >= 6 and lineCount then
+        if lineCount > 6 then
             local type, file = line:match("^%s(.+):   (.+)$")
             if type == nil then
                 break
@@ -53,7 +53,7 @@ function main(args: {string})
     for type, filesAndCount: {
         count: number,
         [number]: string,
-    } in typeCounts do 
+    } in typeCounts do
         local count = filesAndCount.count
         local bullet = dim("•")
         stdio.write(`  {bullet} {
@@ -61,7 +61,7 @@ function main(args: {string})
         } files {type}`) 
 
         if count == 1 then
-            stdio.write(` ({dim(filesAndCount[1])})`)
+            stdio.write(` ({dim(filesAndCount[1]:gsub("%s", ""))})\n`)
             continue
         end
 
@@ -70,29 +70,29 @@ function main(args: {string})
         files.count = nil
         for _, file in files do
             -- TODO: Map colors to type
-            print(`    {bullet} {stdio.color("cyan") .. file .. stdio.color("reset")}`)
+            print(`    {bullet} {stdio.color("cyan") .. file:gsub("%s", "") .. stdio.color("reset")}`)
         end
+    end
 
-        print("Commit message:")
-        -- TODO: Conventional commit prompts
-        local commitMessage = stdio.prompt("text")
-        local gitCommitChild = process.spawn("git", {"commit", "-a", "-m", commitMessage})
-        if not gitCommitChild.ok then
-            stdio.ewrite(gitCommitChild.stderr)
-            return gitCommitChild.code
-        end
+    print("Commit message:")
+    -- TODO: Conventional commit prompts
+    local commitMessage = stdio.prompt("text")
+    local gitCommitChild = process.spawn("git", {"commit", "-a", "-m", commitMessage})
+    if not gitCommitChild.ok then
+        stdio.ewrite(gitCommitChild.stderr)
+        return gitCommitChild.code
+    end
 
-        stdio.write("\n")
-        local toPush = stdio.prompt("confirm", "Push changes to remote?")
-        if toPush then
-            local pushChild = process.spawn("lune", { "run", "$HOME/bin/gp.luau" }, {
-                shell = true,
-                stdio = "forward"
-            })
+    stdio.write("\n")
+    local toPush = stdio.prompt("confirm", "Push changes to remote?")
+    if toPush then
+        local pushChild = process.spawn("lune", { "run", "$HOME/bin/gp.luau" }, {
+            shell = true,
+            stdio = "forward"
+        })
 
-            if not pushChild.ok then
-                return pushChild.code
-            end
+        if not pushChild.ok then
+            return pushChild.code
         end
     end
 

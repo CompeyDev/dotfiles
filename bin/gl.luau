@@ -43,7 +43,7 @@ local function outputToCommit(_, line)
     }
 end
 
-function main(args: {string})
+function main(args: {string?})
     local range = args[1]
     local gitLogChild = process.spawn(
         "git",

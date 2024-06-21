@@ -2,7 +2,7 @@ local process = require("@lune/process")
 local stdio = require("@lune/stdio")
 local task = require("@lune/task")
 
-local gitLog = require("./gl.luau")
+local gitLog = require("gl.luau")
 type Commit = gitLog.Commit
 
 local function dots(count: number)
@@ -15,14 +15,16 @@ end
 function main(args: {string})
     print("Unpushed commits:")
 
-    local childExit = gitLog.main({"main..HEAD"})
+    local childExit = gitLog.main({"origin/main..HEAD"})
     if childExit ~= 0 then
         return childExit
     end
 
     stdio.write("Pushing to remote")
     task.spawn(dots, 3)
-    local pushChild = process.spawn("git", {"push"})
+    local pushChild = process.spawn("git", {"pull", "--rebase", "&&", "git", "push"}, {
+        shell = true
+    })
     if not pushChild.ok then
         stdio.ewrite("\r" .. pushChild.stderr)
         return pushChild.code
