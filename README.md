@@ -6,5 +6,5 @@ cd dotfiles
 ln -s .bashrc ~/.bashrc
 ```
 
-The repository also includes a `./install.sh` convenience script which installs required dependencies and uses GNU Stow to create an automated symlink farm. Currently, this script only works
+The repository also includes a `./install.sh` convenience script which installs required dependencies and recursively symlinks files to the user's home directory. Currently, this script only works
 on Arch Linux based distributions (which have the pacman command).
