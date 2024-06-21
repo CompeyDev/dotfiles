@@ -50,7 +50,7 @@ function main(args: {string?})
         {
             "log",
             "--graph",
-            "--pretty=format:%Cred%h%Creset{{SEP}}%s{{SEP}}%Cgreen(%cI){{SEP}}%C(bold blue)<%an>%Creset",
+            "--pretty=format:%h{{SEP}}%s{{SEP}}(%cI){{SEP}}<%an>",
             range or "HEAD~5..HEAD",
         }
     )
