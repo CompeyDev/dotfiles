@@ -9,7 +9,7 @@
 #                      ~/.gitcon                                         o888o
 
 [user]
-        signingkey = 23CD97ABBBCC5ED2
+        signingkey = E3F23ACCDA539F3B
         email = hi@devcomp.xyz
         name = CompeyDev
 
